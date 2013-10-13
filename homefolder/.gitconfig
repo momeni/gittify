@@ -1,0 +1,15 @@
+[alias]
+	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
+	unstage = reset HEAD
+	last = log -1 HEAD
+	visual = !gitk
+	st = status
+	uncommit = reset --soft HEAD^
+	progress = diff --stat
+	pg = diff --shortstat
+[color]
+	ui = auto
+[core]
+	editor = vim
+[push]
+	default = simple
