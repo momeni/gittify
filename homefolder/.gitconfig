@@ -11,5 +11,7 @@
 	ui = auto
 [core]
 	editor = vim
+# comment following lines if your git version is less than v1.7.11
+# for more information visit this link <https://github.com/git/git/blob/master/Documentation/RelNotes/1.7.11.txt>
 [push]
 	default = simple
