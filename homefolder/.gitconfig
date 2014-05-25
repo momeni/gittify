@@ -1,5 +1,6 @@
 [alias]
 	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
+        tree = log --graph --decorate --pretty=oneline --abbrev-commit
 	unstage = reset HEAD
 	last = log -1 HEAD
 	visual = !gitk
