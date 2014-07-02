@@ -20,6 +20,10 @@ ones are as follows:
 
    Prints a colorful one-line-per-commit log.
 
+ * git tree
+ 
+   Same as `git lg --graph`; showing graph of commits.
+
  * git st
 
    Prints the status.
