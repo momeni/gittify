@@ -22,7 +22,7 @@ ones are as follows:
 
  * git tree
  
-   Prints a colorful one-line-per-commit tree.
+   Same as `git lg --graph`; showing graph of commits.
 
  * git st
 
