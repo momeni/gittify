@@ -1,1 +1,7 @@
-bash --rcfile ~/git.bashrc
+if [ -f ~/.gittify/git.bashrc ]; then
+  bash --rcfile ~/.gittify/git.bashrc
+elif [ -f /etc/gittify/git.bashrc ]; then
+  bash --rcfile /etc/gittify/git.bashrc
+else
+  echo "I cannot find git.bashrc file!"
+fi

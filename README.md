@@ -35,11 +35,11 @@ ones are as follows:
 ##Installation
 
 1. Copy _bin/gittify_ file into _~/bin/_ folder (or add it to the $PATH),
-2. Copy _homefolder/git.bashrc_ file to your _home folder_ (gittify script uses it),
+2. Copy _homefolder/git.bashrc_ file to _$HOME/.gittify/git.bashrc_ (gittify script uses it),
 3. **Append** contents of _homefolder/.gitconfig_ to your _.gitconfig_ file.
 
 ##License
-    Copyright © 2013  Behnam Momeni
+    Copyright © 2013-2015  Behnam Momeni
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
