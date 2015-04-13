@@ -12,5 +12,3 @@
 	ui = auto
 [core]
 	editor = vim
-[push]
-	default = simple

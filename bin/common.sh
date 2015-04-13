@@ -5,9 +5,25 @@ function install_gittify {
   install -D -m 644 ../homefolder/git.bashrc "$dstconf"
 }
 
+function select_config_file {
+  git version | cut -d\  -f3 | tr '.' ' ' | while read a b c; do
+    ourgit="../homefolder/.gitconfig.before-git-${a}.${b}.${c}"
+    availablegits="$(ls ../homefolder/.gitconfig.before-git-*)"
+    candidate="$(echo $ourgit $availablegits ../homefolder/.gitconfig.before-git-last | tr ' ' '\n' | sort --version-sort | grep -A1 "$ourgit" | tail -n1)"
+    if [ "$candidate" = "../homefolder/.gitconfig.before-git-last" ]; then
+      echo "../homefolder/.gitconfig"
+    elif [ -f "$candidate" ]; then
+      echo "$candidate"
+    else
+      echo "ERROR: Cannot find candidate config file."
+      exit -1;
+    fi
+  done
+}
+
 function install_configs {
   opt="$1"
-  cat ../homefolder/.gitconfig | sed 's/#.*//g' | gawk '{ sub(/\s*/, ""); if (/\[(.*)\]/) { prefix=substr($0, 2, length()-2); } else if ($0 ~ /\S/) { print prefix"."$0; } }' | sed 's/ = /\n/' | while read name; do
+  select_config_file | xargs cat | sed 's/#.*//g' | gawk '{ sub(/\s*/, ""); if (/\[(.*)\]/) { prefix=substr($0, 2, length()-2); } else if ($0 ~ /\S/) { print prefix"."$0; } }' | sed 's/ = /\n/' | while read name; do
     read value;
     if git config "$opt" "$name" > /dev/null; then
       echo "Config[$name] already exists. Ignoring it."

@@ -44,6 +44,7 @@ or run `sudo make install-root` to install system-wide.
 1. Copy _bin/gittify_ file into _~/bin/_ folder (or add it to the $PATH),
 2. Copy _homefolder/git.bashrc_ file to _$HOME/.gittify/git.bashrc_ (gittify script uses it),
 3. **Append** contents of _homefolder/.gitconfig_ to your _.gitconfig_ file.
+  * if (your git version older than 1.7.11): use _.gitconfig.before-git-1.7.11_ instead of _.gitconfig_ file
 
 ##License
     Copyright © 2013-2015  Behnam Momeni
