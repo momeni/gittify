@@ -6,8 +6,8 @@ function install_gittify {
 }
 
 function select_config_file {
-  git version | cut -d\  -f3 | tr '.' ' ' | while read a b c; do
-    ourgit="../homefolder/.gitconfig.before-git-${a}.${b}.${c}"
+  git version | cut -d\  -f3 | while read ver; do
+    ourgit="../homefolder/.gitconfig.before-git-${ver}"
     availablegits="$(ls ../homefolder/.gitconfig.before-git-*)"
     candidate="$(echo $ourgit $availablegits ../homefolder/.gitconfig.before-git-last | tr ' ' '\n' | sort --version-sort | grep -A1 "$ourgit" | tail -n1)"
     if [ "$candidate" = "../homefolder/.gitconfig.before-git-last" ]; then
@@ -23,7 +23,7 @@ function select_config_file {
 
 function install_configs {
   opt="$1"
-  select_config_file | xargs cat | sed 's/#.*//g' | gawk '{ sub(/\s*/, ""); if (/\[(.*)\]/) { prefix=substr($0, 2, length()-2); } else if ($0 ~ /\S/) { print prefix"."$0; } }' | sed 's/ = /\n/' | while read name; do
+  select_config_file | xargs cat | sed 's/#.*//g' | gawk '{ sub(/[\t ]*/, ""); if (/\[(.*)\]/) { prefix=substr($0, 2, length()-2); } else if ($0 ~ /[^\t ]/) { print prefix"."$0; } }' | sed 's/ = /\n/' | while read name; do
     read value;
     if git config "$opt" "$name" > /dev/null; then
       echo "Config[$name] already exists. Ignoring it."

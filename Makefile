@@ -8,9 +8,9 @@ help:
 	@echo 'or type "make install-root" to install system-wide (needs root access)'
 
 install-user:
-	cd ./bin && ./install-user.sh
+	cd ./bin && bash ./install-user.sh
 
 install-root:
-	cd ./bin && ./install-root.sh
+	cd ./bin && bash ./install-root.sh
 
 .PHONY: all usage help install-user install-root
