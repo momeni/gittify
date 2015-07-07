@@ -1,5 +1,7 @@
 if [ -f ~/.gittify/git.bashrc ]; then
   bash --rcfile ~/.gittify/git.bashrc
+elif [ -f ~/.config/gittify/git.bashrc ]; then
+  bash --rcfile ~/.config/gittify/git.bashrc
 elif [ -f /etc/gittify/git.bashrc ]; then
   bash --rcfile /etc/gittify/git.bashrc
 else
