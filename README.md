@@ -75,7 +75,7 @@ following lines in the config file:
 ```
 
 ##License
-    Copyright © 2013-2015  Behnam Momeni
+    Copyright © 2013-2016  Behnam Momeni
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
