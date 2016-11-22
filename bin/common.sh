@@ -23,7 +23,7 @@ function select_config_file {
 
 function install_configs {
   opt="$1"
-  select_config_file | xargs cat | sed 's/#.*//g' | gawk '{ sub(/[\t ]*/, ""); if (/\[(.*)\]/) { prefix=substr($0, 2, length()-2); } else if ($0 ~ /[^\t ]/) { print prefix"."$0; } }' | sed 's/ = /\n/' | while read name; do
+  select_config_file | xargs cat | sed 's/#.*//g' | awk '{ sub(/[\t ]*/, ""); if (/\[(.*)\]/) { prefix=substr($0, 2, length()-2); } else if ($0 ~ /[^\t ]/) { print prefix"."$0; } }' | sed 's/ = /\n/' | while read name; do
     read value;
     if git config "$opt" "$name" > /dev/null; then
       echo "Config[$name] already exists. Ignoring it."
