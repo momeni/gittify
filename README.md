@@ -30,9 +30,9 @@ But most useful ones are as follows:
 
    Prints the status.
 
- * `git unstage _somefile_`
+ * `git unstage somefile`
 
-   Unstages the `_somefile_`.
+   Unstages the `somefile`.
 
 ## Installation
 
@@ -43,11 +43,11 @@ or run `sudo make install-root` to install system-wide.
 
 ### Manual
 
-1. Copy `_bin/gittify_` file into `_~/bin/_` folder (or add it to the `$PATH`),
-2. Copy `_homefolder/git.bashrc_` file to `_$HOME/.gittify/git.bashrc_` or
-   `_$HOME/.config/gittify/git.bashrc` (gittify script uses it),
-3. **Append** contents of `_homefolder/.gitconfig_` to your `_.gitconfig_` file.
-  * if (your git version is older than 1.7.11): use `_.gitconfig.before-git-1.7.11_` instead of `_.gitconfig_` file
+1. Copy `bin/gittify` file into `~/bin/` folder (or add it to the `$PATH`),
+2. Copy `homefolder/git.bashrc` file to `$HOME/.gittify/git.bashrc` or
+   `$HOME/.config/gittify/git.bashrc` (gittify script uses it),
+3. **Append** contents of `homefolder/.gitconfig` to your `.gitconfig` file.
+  * if (your git version is older than 1.7.11): use `.gitconfig.before-git-1.7.11` instead of `.gitconfig` file
 
 ## Customizing Name/Email
 
