@@ -5,7 +5,7 @@ Customized bash environment, making git folders more friendly.
 This project provides bash/git customization files. Running the
 **gittify** command, starts a new **bash** shell and overrides
 its console PS1.
-New console line informs about the state of current git
+New console line informs about the state of the current git
 working copy (e.g. name of the current branch) in a colorful manner.
 
 Also some aliases are defined in **.gitconfig** file. **Appending** them
@@ -14,9 +14,9 @@ See Installation section for more details.
 
 Moreover, it allows customizing user name/email based on the remote repos.
 
-##Most useful aliases
-For all aliases, look in the homefolder/.gitconfig file :) But most useful
-ones are as follows:
+## Most useful aliases
+For all aliases, look in the `homefolder/.gitconfig` file :)
+But most useful ones are as follows:
 
  * `git lg`
 
@@ -47,7 +47,7 @@ or run `sudo make install-root` to install system-wide.
 2. Copy `_homefolder/git.bashrc_` file to `_$HOME/.gittify/git.bashrc_` or
    `_$HOME/.config/gittify/git.bashrc` (gittify script uses it),
 3. **Append** contents of `_homefolder/.gitconfig_` to your `_.gitconfig_` file.
-  * if (your git version older than 1.7.11): use `_.gitconfig.before-git-1.7.11_` instead of `_.gitconfig_` file
+  * if (your git version is older than 1.7.11): use `_.gitconfig.before-git-1.7.11_` instead of `_.gitconfig_` file
 
 ## Customizing Name/Email
 
@@ -62,7 +62,7 @@ The gittify checks URL of the **origin** remote for **push** target, extracts
 its domain name, and uses its defined name/email (if any) instead of default values.
 Upon changing name/email configs, new values are printed on the console too.
 
-As an example, for the above example (with test and work user/email configs), put
+As an example, for the above scenario (with test and work user/email configs), put
 following lines in the config file:
 
 ```ini
@@ -75,9 +75,9 @@ following lines in the config file:
 ```
 
 ## License
-    Copyright © 2013-2016  Behnam Momeni
+    Copyright © 2013-2018  Behnam Momeni
 
-    This program is free software: you can redistri`bute it and/or modify
+    This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
