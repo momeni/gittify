@@ -7,7 +7,7 @@ fi
 
 function get_remote_origin_domain_name {
   if git remote -v >/dev/null 2>&1; then
-    git remote -v | grep '^origin\W*\(\w*://\)\?\(\(@\|\.\|\w\)*\).*(push)$' | head -n1 | sed 's/^origin\W*\(\w*:\/\/\)\?\(\(@\|\.\|\w\)*\).*(push)$/\2/' | sed 's/[^@]*@\(.*\)/\1/'
+    git remote -v | grep '^origin\W*\(\w*://\)\?\([^:/]*\).*(push)$' | head -n1 | sed 's/^origin\W*\(\w*:\/\/\)\?\([^:/]*\).*(push)$/\2/' | sed 's/[^@]*@\(.*\)/\1/'
   fi
 }
 
