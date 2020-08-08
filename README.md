@@ -1,6 +1,6 @@
 # Gittify
 
-Customized bash environment, making git folders more friendly.
+A customized bash environment to make git folders more friendly.
 
 This project provides bash/git customization files. Running the
 **gittify** command, starts a new **bash** shell and overrides
@@ -32,7 +32,7 @@ But most useful ones are as follows:
 
  * `git unstage somefile`
 
-   Unstages the `somefile`.
+   Unstages `somefile`.
 
 ## Installation
 
@@ -44,7 +44,7 @@ or run `sudo make install-root` to install system-wide.
 ### Manual
 
 1. Copy `bin/gittify` file into `~/bin/` folder (or add it to the `$PATH`),
-2. Copy `homefolder/git.bashrc` file to `$HOME/.gittify/git.bashrc` or
+2. Copy `homefolder/git.bashrc` file into `$HOME/.gittify/git.bashrc` or
    `$HOME/.config/gittify/git.bashrc` (gittify script uses it),
 3. **Append** contents of `homefolder/.gitconfig` to your `.gitconfig` file.
   * if (your git version is older than 1.7.11): use `.gitconfig.before-git-1.7.11` instead of `.gitconfig` file
@@ -75,7 +75,7 @@ following lines in the config file:
 ```
 
 ## License
-    Copyright © 2013-2018  Behnam Momeni
+    Copyright © 2013-2020  Behnam Momeni
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
