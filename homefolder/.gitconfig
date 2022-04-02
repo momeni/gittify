@@ -1,5 +1,6 @@
 [alias]
 	lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
+	logg = log --pretty=fuller
 	tree = !git lg --graph
 	unstage = reset HEAD
 	last = log -1 HEAD
