@@ -21,12 +21,48 @@ function select_config_file {
   done
 }
 
+function should_overwrite {
+  while true; do
+    read -p "Do you want to overwrite this config (y/n)? " yes_or_no < /dev/stdin
+    case "$yes_or_no" in
+      y|yes)
+        return 0
+        ;;
+      n|no)
+        return 1
+        ;;
+      *)
+        echo ""
+        echo "Either type y or yes in order to overwrite this config"
+        echo "or type n or no in order to keep it unchanged"
+        ;;
+    esac
+  done
+}
+
 function install_configs {
-  opt="$1"
+  local opt="$1"
+  local oldval
+  local name
+  local value
+  exec {USER_PROMPT}>&0
   select_config_file | xargs cat | sed 's/#.*//g' | awk '{ sub(/[\t ]*/, ""); if (/\[(.*)\]/) { prefix=substr($0, 2, length()-2); } else if ($0 ~ /[^\t ]/) { print prefix"."$0; } }' | sed 's/ = /\n/' | while read name; do
     read value;
-    if git config "$opt" "$name" > /dev/null; then
-      echo "Config[$name] already exists. Ignoring it."
+    oldval="$(git config "$opt" "$name")"
+    if [ $? = 0 ]; then
+      echo "Config[$name] already exists."
+      if [ "a$oldval" = "a$value" ]; then
+        echo "Old and new values are the same (no changes)."
+      else
+        echo "Old value: $oldval"
+        echo "New value: $value"
+        if should_overwrite <&$USER_PROMPT; then
+          echo "Overwriting Config[name=$name] -> $value"
+          git config "$opt" "$name" "$value"
+        else
+          echo "Config[name=$name] is kept unchanged."
+        fi
+      fi
     else
       echo "Config[name=$name] -> $value";
       git config "$opt" "$name" "$value"

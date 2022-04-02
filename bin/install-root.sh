@@ -3,6 +3,7 @@ if [ "$(whoami)" != "root" ]; then
   exit -1;
 fi
 echo "Installing system-wide ..."
+cd "$(dirname "$0")"
 . ./common.sh
 install_configs --system
 install_gittify /usr/bin /etc/gittify/git.bashrc

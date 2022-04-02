@@ -1,4 +1,5 @@
 echo "Installing in $HOME ..."
+cd "$(dirname "$0")"
 . ./common.sh
 
 install_configs --global
